@@ -304,8 +304,8 @@
     if (typeof BUGSNAG_TESTING !== "undefined" && self.testRequest) {
       self.testRequest(url, params);
     } else {
-      var img = new Image();
-      img.src = url;
+      // Use jQuery for the request to allow reporting from chrome packaged apps
+      $.get(url);
     }
   }
 
